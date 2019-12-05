@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>汉诺塔</title>
+	　　<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<style type="text/css">
+			.gold_disk{
+				width: 100px;
+				height: 20px;
+				background-color: #FFC042;
+				cursor:pointer;
+				position:absolute;
+				left:0;
+				top:0;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="gold_disk" class="gold_disk">
+		</div>
+		<script type="text/javascript">
+			$("#gold_disk").mousedown(
+				function(e){
+					var positionDiv = $(this).offset()
+					var distenceX = e.pageX - positionDiv.left;
+					var distenceY = e.pageY - positionDiv.top;	
+					
+					$(document).mousemove(function(e){
+						var x = e.pageX - distenceX;
+						var y = e.pageY - distenceY;
+
+						var document_x = $(document).width();
+						var obj_x = $("#gold_disk").outerWidth(true);
+						var document_y = $(document).height();
+						var obj_y = $("#gold_disk").outerHeight(true);
+
+						if(x< 0){
+							x = 0;
+						}else if(x > document_x - obj_x){
+							x = document_x - obj_x;
+						}
+						if(y < 0){
+							y = 0;
+						}else if(y > document_y - obj_y){
+							y = document_y - obj_y
+						}
+						$("#gold_disk").css({
+							'left': x+'px',
+							'top': y+'px'
+						})
+						console.log(x)
+					})
+
+					$(document).mouseup(function(){
+						$(document).off('mousemove');
+					})
+					
+			})
+		</script>		
+	</body>
+</html>
