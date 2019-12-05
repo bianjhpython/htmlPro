@@ -22,13 +22,13 @@
 		<script type="text/javascript">
 			$("#gold_disk").mousedown(
 				function(e){
-					var positionDiv = $(this).offset()
-					var distenceX = e.pageX - positionDiv.left;
+					var positionDiv = $(this).offset(); 
+					var distenceX = e.pageX - positionDiv.left; 
 					var distenceY = e.pageY - positionDiv.top;	
 					
-					$(document).mousemove(function(e){
-						var x = e.pageX - distenceX;
-						var y = e.pageY - distenceY;
+					$(document).mousemove(function(e){ 
+						var x = e.pageX - distenceX;  
+						var y = e.pageY - distenceY;  
 
 						var document_x = $(document).width();
 						var obj_x = $("#gold_disk").outerWidth(true);
